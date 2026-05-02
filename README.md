@@ -50,8 +50,12 @@ Source or copy `shell-safe-rm.fish` and add an alias in your `config.fish`:
 ```fish
 alias rm='path/to/shell-safe-rm.fish'
 ```
+or 
+```fish
+abbr -a rm 'path/to/shell-safe-rm.fish'
+```
 
-Or copy it somewhere on your `$PATH` (e.g. `~/.local/bin/rm`) and make it executable:
+Or copy it somewhere on your `$PATH` (e.g. `~/.local/bin/rm`, `~/bin/rm`) and make it executable:
 
 ```fish
 cp shell-safe-rm.fish ~/.local/bin/rm
