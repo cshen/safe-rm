@@ -48,6 +48,9 @@ source path/to/delete.fish
 cp delete.fish ~/.config/fish/functions/delete.fish
 ```
 
+I'd suggest: `abbr -a rm delete -i --` 
+to alias `rm` to `delete` with interactive mode by default, but you can customize the alias however you like.
+
 ---
 
 ## `shell-safe-rm.fish` and `safe-rm.py`

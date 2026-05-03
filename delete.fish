@@ -82,6 +82,8 @@ function delete --description 'Move specified files to the macOS Trash'
             if test $status -ne 0
                 echo >&2 "delete: could not unlink '$file'"
                 set exit_code 1
+            else
+                echo >$2 "delete: unlinked '$file'."
             end
         else
             set -a osascript_args "the POSIX file \""(path resolve "$file")"\""
@@ -92,6 +94,8 @@ function delete --description 'Move specified files to the macOS Trash'
     if test (count $osascript_args) -gt 0
         osascript >/dev/null 2>&1 \
             -e "tell app \"Finder\" to move { "(string join ", " $osascript_args)" } to trash"
+        
+        echo >$2 "delete: moved "(count $osascript_args)" item(s) to Trash."
 
         if test $status -ne 0
             echo >&2 "delete: Finder refused to move the files to Trash."
