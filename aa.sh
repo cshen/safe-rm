@@ -1,1 +1,0 @@
-/Users/cs/Downloads/aa.sh
