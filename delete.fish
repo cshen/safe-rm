@@ -69,13 +69,14 @@ function delete --description 'Move specified files to the macOS Trash'
     for file in $valid_targets
         # -i prompt: "remove <arg>?" — skipped when -f is set
         if test $interactive -eq 1; and test $force -eq 0
-            printf 'remove %s? ' "$file"
-            read -l answer
+            
+            read  -p "echo -n Do you really want to remove file\(s\) "$file" y/[N]?' '"  -l answer
             if not string match -qr '^[yY]' -- $answer
                 continue
             end
         end
 
+        
         # Symlinks are unlinked directly — no need to involve Finder
         if test -L "$file"
             unlink "$file"
@@ -95,7 +96,7 @@ function delete --description 'Move specified files to the macOS Trash'
         osascript >/dev/null 2>&1 \
             -e "tell app \"Finder\" to move { "(string join ", " $osascript_args)" } to trash"
         
-        echo >$2 "delete: moved "(count $osascript_args)" item(s) to Trash."
+        echo  "delete: moved "(count $osascript_args)" item(s) to Trash."
 
         if test $status -ne 0
             echo >&2 "delete: Finder refused to move the files to Trash."
