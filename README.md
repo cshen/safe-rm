@@ -9,6 +9,8 @@ Three implementations are provided — pick whichever fits your workflow:
 | `shell-safe-rm.fish` | [Fish shell](https://fishshell.com/) | macOS, Linux |
 | `safe-rm.py` | Python 3.11+ via [uv](https://docs.astral.sh/uv/) | macOS, Linux |
 | `delete.fish` | [Fish shell](https://fishshell.com/) | macOS only |
+| `delete.sh` |    Bash shell | macOS only |
+
 
 ## `delete.fish`
 
