@@ -1,5 +1,9 @@
 # safe-rm
 
+```sh
+curl -fL https://raw.githubusercontent.com/cshen/safe-rm/main/install.sh | sh
+```
+
 A safer `rm` replacement that **moves files to the system trash** instead of permanently deleting them. Supports the common `rm` flags so it can be used as a drop-in alias.
 
 Three implementations are provided — pick whichever fits your workflow:
@@ -39,6 +43,17 @@ delete [-f] [-i] [--] <files...>
 - `-f` overrides `-i`: combined `-fi` skips all prompts.
 
 ### Installation
+
+Run the installer to add both `delete.fish` and its `trash_cli.fish` backend to
+your user-level Fish functions directory:
+
+```fish
+./install.sh
+```
+
+The installer uses `$XDG_CONFIG_HOME/fish/functions` when `XDG_CONFIG_HOME` is
+set, and `~/.config/fish/functions` otherwise. Start a new Fish shell after
+installation to load the `delete` command.
 
 Source the file from your `config.fish`, or copy it to a directory on `$PATH`:
 
